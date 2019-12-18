@@ -23,7 +23,7 @@ function CourseForm(props) {
             id="author"
             name="authorId"
             onChange={props.onChange}
-            value={props.course.authorId}
+            value={props.course.authorId || ""}
             className="form-control"
           >
             <option value="" />
