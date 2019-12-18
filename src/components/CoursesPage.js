@@ -12,7 +12,7 @@ class CoursesPage extends React.Component {
 
   renderRow(course) {
     return (
-      <tr>
+      <tr key={course.id}>
         <td>{course.title}</td>
         <td>{course.authorId}</td>
         <td>{course.category}</td>
