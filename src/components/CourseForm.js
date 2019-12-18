@@ -9,6 +9,7 @@ function CourseForm(props) {
           <input
             id="title"
             type="text"
+            onChange={props.onTitleChange}
             name="title"
             className="form-control"
             value={props.course.title}
