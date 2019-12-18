@@ -11,11 +11,10 @@ const ManageCoursePage = props => {
   });
 
   function handleChange({ target }) {
-    const updatedCourse = {
+    setCourse({
       ...course,
       [target.name]: target.value
-    };
-    setCourse(updatedCourse);
+    });
   }
 
   return (
