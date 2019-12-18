@@ -7,7 +7,7 @@ function Header() {
   };
   return (
     <nav>
-      <NavLink activeStyle={activeStyle} to="/">
+      <NavLink activeStyle={activeStyle} exact to="/">
         Home
       </NavLink>
       {" | "}
