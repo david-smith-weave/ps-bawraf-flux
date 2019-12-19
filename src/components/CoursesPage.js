@@ -7,8 +7,12 @@ function CoursesPage() {
   const [courses, setCourses] = useState([]);
 
   useEffect(() => {
-    setCourses(CourseStore.getCourses());
+    CourseStore.addChangeListener(onChange);
   }, []); //run once
+
+  function onChange() {
+    setCourses(CourseStore.getCourses());
+  }
 
   return (
     <>
