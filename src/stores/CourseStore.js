@@ -17,6 +17,14 @@ class CourseStore extends EventEmitter {
   emitChange() {
     this.emit(CHANGE_EVENT);
   }
+
+  getCourses() {
+    return _courses;
+  }
+
+  getCourseBySlug(slug) {
+    return _courses.find(course => course.slug === slug);
+  }
 }
 
 const store = new CourseStore();
