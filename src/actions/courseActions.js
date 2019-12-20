@@ -23,13 +23,11 @@ export function loadCourses() {
   });
 }
 
-export function deleteCourse(slug) {
-  courseApi.getCourseBySlug(slug).then(course => {
-    return courseApi.deleteCourse(course.id).then(course => {
-      dispatcher.dispatch({
-        actionType: actionTypes.DELETE_COURSE,
-        course: course
-      });
+export function deleteCourse(id) {
+  return courseApi.deleteCourse(id).then(() => {
+    dispatcher.dispatch({
+      actionType: actionTypes.DELETE_COURSE,
+      id: id
     });
   });
 }
