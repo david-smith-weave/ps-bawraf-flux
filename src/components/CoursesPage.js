@@ -14,9 +14,10 @@ function CoursesPage(props) {
       loadCourses();
     } else if (slug) {
       deleteCourse(slug);
+      props.history.push("/courses");
     }
     return () => CourseStore.removeChangeListener(onChange); //cleanup on unmount
-  }, [props.match.params.slug]);
+  }, [props.match.params.slug, courses.length, props.history]);
 
   function onChange() {
     setCourses(CourseStore.getCourses());
