@@ -2,17 +2,21 @@ import React, { useState, useEffect } from "react";
 import CourseStore from "../stores/CourseStore";
 import CourseList from "./CourseList";
 import { Link } from "react-router-dom";
-import { loadCourses } from "../actions/courseActions";
+import { loadCourses, deleteCourse } from "../actions/courseActions";
 
-function CoursesPage() {
+function CoursesPage(props) {
   const [courses, setCourses] = useState(CourseStore.getCourses());
 
   useEffect(() => {
     CourseStore.addChangeListener(onChange);
-    if (CourseStore.getCourses().length === 0) loadCourses();
-
+    const slug = props.match.params.slug; //pulled from the path '/courses/:slug'
+    if (CourseStore.getCourses().length === 0) {
+      loadCourses();
+    } else if (slug) {
+      deleteCourse(slug);
+    }
     return () => CourseStore.removeChangeListener(onChange); //cleanup on unmount
-  }, []); //run once
+  }, [props.match.params.slug]);
 
   function onChange() {
     setCourses(CourseStore.getCourses());

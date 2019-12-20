@@ -10,6 +10,7 @@ function CourseList(props) {
           <th>Title</th>
           <th>Author ID</th>
           <th>Category</th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
@@ -21,6 +22,14 @@ function CourseList(props) {
               </td>
               <td>{course.authorId}</td>
               <td>{course.category}</td>
+              <td>
+                <Link
+                  className="btn btn-primary"
+                  to={"/course/" + course.slug + "/delete"}
+                >
+                  Delete Course
+                </Link>
+              </td>
             </tr>
           );
         })}
