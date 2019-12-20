@@ -42,7 +42,7 @@ Dispatcher.register(action => {
       store.emitChange();
       break;
     case actionTypes.DELETE_COURSE:
-      _courses = _courses.map(course => {
+      _courses = _courses.filter(course => {
         return !(course.id === action.course.id);
       });
       store.emitChange();
